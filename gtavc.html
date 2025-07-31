@@ -1,0 +1,1817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTA Vice City - Ultimate Gaming Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-glow: #667eea;
+            --secondary-glow: #764ba2;
+            --accent-glow: #f093fb;
+            --success-glow: #4facfe;
+            --warning-glow: #f6d365;
+            --danger-glow: #ff6b6b;
+            --neon-blue: #00f5ff;
+            --neon-pink: #ff006e;
+            --neon-green: #39ff14;
+            --neon-purple: #bf00ff;
+            --cyber-orange: #ff9500;
+            --quantum-gold: #ffd700;
+            --matrix-red: #ff0040;
+            --download-green: #00ff88;
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #1a1a2e;
+            --bg-card: #16213e;
+            --bg-glass: rgba(0, 0, 0, 0.3);
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --border-color: #475569;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --glow-primary: rgba(102, 126, 234, 0.5);
+            --glow-secondary: rgba(118, 75, 162, 0.5);
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            transition: all 0.3s ease;
+            overflow-x: hidden;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            position: relative;
+        }
+
+        .orbitron {
+            font-family: 'Orbitron', monospace;
+        }
+
+        .exo {
+            font-family: 'Exo 2', sans-serif;
+        }
+
+        /* Advanced Background Effects */
+        .cosmic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: 
+                radial-gradient(ellipse at 20% 70%, rgba(120, 119, 198, 0.4) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(255, 119, 198, 0.4) 0%, transparent 50%),
+                radial-gradient(ellipse at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%),
+                linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+        }
+
+        /* Advanced Particle System */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+
+        .star:nth-child(odd) {
+            animation-delay: 1s;
+        }
+
+        .star.shooting {
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-pink));
+            animation: shooting-star 3s linear infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        @keyframes shooting-star {
+            0% { transform: translateX(-100px) translateY(100px) rotate(45deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateX(calc(100vw + 100px)) translateY(-100px) rotate(45deg); opacity: 0; }
+        }
+
+        /* Enhanced Particle System */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: linear-gradient(45deg, var(--primary-glow), var(--secondary-glow));
+            border-radius: 50%;
+            animation: float-particle 6s infinite linear;
+        }
+
+        .particle.glow {
+            box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue), 0 0 30px var(--neon-blue);
+            background: var(--neon-blue);
+        }
+
+        .particle.pulse {
+            animation: pulse-particle 2s infinite ease-in-out;
+        }
+
+        .particle.quantum {
+            background: linear-gradient(45deg, var(--quantum-gold), var(--matrix-red));
+            animation: quantum-float 8s infinite linear;
+        }
+
+        @keyframes float-particle {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes pulse-particle {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.5); opacity: 1; }
+        }
+
+        @keyframes quantum-float {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(50vh) rotate(180deg) scale(1.5);
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Geometric Background Elements */
+        .geometric-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .geometric-shape {
+            position: absolute;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            animation: float-geometric 20s infinite linear;
+        }
+
+        .geometric-shape.triangle {
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-bottom: 50px solid rgba(102, 126, 234, 0.1);
+            border-radius: 0;
+        }
+
+        .geometric-shape.hexagon {
+            width: 60px;
+            height: 34.64px;
+            background: rgba(102, 126, 234, 0.1);
+            position: relative;
+            margin: 17.32px 0;
+        }
+
+        .geometric-shape.hexagon:before,
+        .geometric-shape.hexagon:after {
+            content: "";
+            position: absolute;
+            width: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+        }
+
+        .geometric-shape.hexagon:before {
+            bottom: 100%;
+            border-bottom: 17.32px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .geometric-shape.hexagon:after {
+            top: 100%;
+            border-top: 17.32px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .geometric-shape.diamond {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 215, 0, 0.1);
+            transform: rotate(45deg);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .geometric-shape.octagon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 0, 110, 0.1);
+            clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+            border: 1px solid rgba(255, 0, 110, 0.3);
+        }
+
+        @keyframes float-geometric {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Enhanced Navbar with Gaming Elements */
+        .navbar {
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .navbar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink), var(--neon-green), var(--neon-purple));
+            background-size: 400% 100%;
+            animation: rainbow-flow 3s linear infinite;
+        }
+
+        @keyframes rainbow-flow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 15, 0.98);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transform: translateY(-1px);
+        }
+
+        /* Enhanced Gaming Logo */
+        .gaming-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gaming-logo::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, var(--primary-glow), var(--secondary-glow), var(--accent-glow));
+            border-radius: 12px;
+            opacity: 0;
+            filter: blur(10px);
+            transition: opacity 0.3s ease;
+            z-index: -1;
+            animation: logo-pulse 3s infinite;
+        }
+
+        .gaming-logo:hover::before {
+            opacity: 0.7;
+        }
+
+        @keyframes logo-pulse {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 0.3; }
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: pulse-glow 2s infinite;
+            position: relative;
+        }
+
+        .logo-icon::after {
+            content: '🏎️';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            z-index: -1;
+            filter: blur(5px);
+            opacity: 0.5;
+            animation: icon-glow 2s infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { filter: drop-shadow(0 0 5px var(--primary-glow)); }
+            50% { filter: drop-shadow(0 0 20px var(--primary-glow)); }
+        }
+
+        @keyframes icon-glow {
+            0% { transform: scale(1.1); opacity: 0.3; }
+            100% { transform: scale(1.3); opacity: 0.7; }
+        }
+
+        /* Enhanced Navigation Links */
+        .nav-link {
+            position: relative;
+            padding: 10px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
+            border-radius: 8px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::before {
+            opacity: 0.2;
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            color: #fff !important;
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        /* Enhanced Hero Section with Gaming Elements and Background Image */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background-image: url('../Images/GTA Vice City/bg.jpeg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            z-index: 0;
+        }
+
+        /* Dark overlay for text visibility */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.7) 100%),
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        /* Ensure content is above the overlay */
+        .hero-section > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Responsive background images for different devices */
+        @media (max-width: 768px) {
+            .hero-section {
+                background-attachment: scroll; /* Fix for mobile devices */
+                background-size: cover;
+                background-position: center center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                background-position: center center;
+                background-size: cover;
+            }
+        }
+
+        /* Hero Title with Advanced Effects */
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #4facfe);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-shift 4s ease-in-out infinite, title-glow 2s ease-in-out infinite alternate;
+            text-shadow: 0 0 50px rgba(102, 126, 234, 0.5);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .hero-title::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0;
+            z-index: -1;
+            animation: title-glitch 5s infinite;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes title-glow {
+            0% { filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.7)); }
+            100% { filter: drop-shadow(0 0 40px rgba(102, 126, 234, 1)); }
+        }
+
+        @keyframes title-glitch {
+            0%, 90%, 100% { opacity: 0; transform: translateX(0); }
+            95% { opacity: 1; transform: translateX(2px); }
+            97% { transform: translateX(-2px); }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            animation: fade-in-up 1s ease-out 0.5s both;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero-subtitle::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
+            animation: subtitle-line 3s infinite;
+        }
+
+        @keyframes subtitle-line {
+            0%, 100% { opacity: 0; transform: scaleX(0); }
+            50% { opacity: 1; transform: scaleX(1); }
+        }
+
+        /* Download Button */
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 20px 60px;
+            border: 2px solid var(--download-green);
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--download-green), #00cc66);
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 255, 136, 0.3);
+            position: relative;
+            overflow: hidden;
+            font-family: 'Orbitron', monospace;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #00ff88, #00ffaa);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .download-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .download-btn:hover::before {
+            opacity: 1;
+        }
+
+        .download-btn:hover::after {
+            left: 100%;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(0, 255, 136, 0.6);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+            border-color: #00ffaa;
+        }
+
+        .download-btn:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        /* Image Boxes */
+        .image-box {
+            width: 100%;
+            background: var(--bg-card);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            position: relative;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .image-box::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink), var(--neon-green));
+            opacity: 0;
+            z-index: -1;
+            border-radius: 22px;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-box:hover::before {
+            opacity: 1;
+        }
+
+        .image-box:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
+            animation: section-line 3s infinite;
+        }
+
+        @keyframes section-line {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+            border-radius: 2px;
+            animation: title-underline 2s infinite;
+        }
+
+        @keyframes title-underline {
+            0%, 100% { width: 100px; }
+            50% { width: 200px; }
+        }
+
+        .section-description {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 4rem;
+            line-height: 1.8;
+        }
+
+        /* Game Info Cards */
+        .info-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .info-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .info-icon {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: icon-float 3s ease-in-out infinite;
+        }
+
+        @keyframes icon-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .download-btn {
+                padding: 16px 40px;
+                font-size: 1.1rem;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .grid-cols-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .grid-cols-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .grid-cols-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Enhanced Animations */
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fade-in-left {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fade-in-right {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fade-in-up 0.8s ease-out both;
+        }
+
+        .animate-fade-in-left {
+            animation: fade-in-left 0.8s ease-out both;
+        }
+
+        .animate-fade-in-right {
+            animation: fade-in-right 0.8s ease-out both;
+        }
+
+        .animate-delay-1 { animation-delay: 0.1s; }
+        .animate-delay-2 { animation-delay: 0.2s; }
+        .animate-delay-3 { animation-delay: 0.3s; }
+        .animate-delay-4 { animation-delay: 0.4s; }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            backdrop-filter: blur(20px);
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 16px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .mobile-menu a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 0;
+            background: var(--neon-blue);
+            transition: width 0.3s ease;
+        }
+
+        .mobile-menu a:hover::before {
+            width: 4px;
+        }
+
+        .mobile-menu a:hover {
+            background: var(--bg-glass);
+            transform: translateX(10px);
+            color: var(--neon-blue);
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+        }
+
+        /* Selection Styling */
+        ::selection {
+            background: var(--neon-blue);
+            color: white;
+        }
+
+        ::-moz-selection {
+            background: var(--neon-blue);
+            color: white;
+        }
+
+        /* Holographic Effect */
+        .holographic {
+            background: linear-gradient(45deg, 
+                var(--neon-blue) 0%, 
+                var(--neon-pink) 25%, 
+                var(--neon-green) 50%, 
+                var(--neon-purple) 75%, 
+                var(--neon-blue) 100%);
+            background-size: 400% 400%;
+            animation: holographic-shift 3s ease infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes holographic-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Cyber Grid */
+        .cyber-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 245, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 245, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: -1;
+            animation: grid-move 20s linear infinite;
+        }
+
+        @keyframes grid-move {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Game Tag */
+        .game-tag {
+            background: rgba(0, 255, 136, 0.2);
+            color: var(--download-green);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin: 2px;
+        }
+
+        .game-tag:hover {
+            background: rgba(0, 255, 136, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+        }
+
+        /* Feature List */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-list li:hover {
+            transform: translateX(10px);
+            color: var(--neon-blue);
+        }
+
+        .feature-list li::before {
+            content: '▶';
+            color: var(--download-green);
+            font-weight: bold;
+        }
+
+        /* Rating Stars */
+        .rating-stars {
+            display: flex;
+            gap: 2px;
+            margin: 10px 0;
+        }
+
+        .star {
+            color: #ffd700;
+            font-size: 1.2rem;
+            animation: star-twinkle 2s infinite;
+        }
+
+        .star:nth-child(2n) {
+            animation-delay: 0.2s;
+        }
+
+        .star:nth-child(3n) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes star-twinkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #4facfe);
+            animation: footer-glow 3s linear infinite;
+        }
+
+        @keyframes footer-glow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Enhanced Background Effects -->
+    <div class="cosmic-bg"></div>
+    <div class="cyber-grid"></div>
+    
+    <!-- Stars -->
+    <div class="stars" id="stars"></div>
+    
+    <!-- Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Geometric Background -->
+    <div class="geometric-bg" id="geometricBg"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar fixed top-0 left-0 right-0 z-50 px-4 py-3" id="navbar">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <div class="gaming-logo">
+                <i class="logo-icon fas fa-car"></i>
+                <span class="text-xl font-bold orbitron holographic">GTA Vice City</span>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#screenshots" class="nav-link">Screenshots</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#requirements" class="nav-link">Requirements</a>
+                <a href="#download" class="nav-link">Download</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="flex items-center space-x-4">
+                <button id="mobileMenuBtn" class="md:hidden p-3 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300">
+                    <i class="fas fa-bars text-xl" style="color: var(--text-primary)"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu hidden md:hidden">
+            <a href="#home">Home</a>
+            <a href="#screenshots">Screenshots</a>
+            <a href="#features">Features</a>
+            <a href="#requirements">Requirements</a>
+            <a href="#download">Download</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="max-w-7xl mx-auto px-4 py-20 text-center relative z-10">
+            <h1 class="hero-title orbitron animate-fade-in-up" data-text="GTA Vice City">
+                GTA Vice City
+            </h1>
+            <p class="hero-subtitle animate-fade-in-up animate-delay-1">
+                Welcome to the 80s! Experience the neon-soaked streets of Vice City in this legendary 
+                open-world action-adventure game. Drive exotic cars, build your criminal empire, 
+                and live the American dream in the most iconic GTA experience.
+            </p>
+
+            <!-- Download Button -->
+            <div class="animate-fade-in-up animate-delay-3">
+                <a href="#download" class="download-btn">
+                    <i class="fas fa-download"></i>
+                    Download Now
+                </a>
+            </div>
+
+            <!-- Game Tags -->
+            <div class="mt-8 animate-fade-in-up animate-delay-4">
+                <span class="game-tag">Open World</span>
+                <span class="game-tag">Action</span>
+                <span class="game-tag">Crime</span>
+                <span class="game-tag">80s Classic</span>
+                <span class="game-tag">Single Player</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Overview Section -->
+    <section id="overview" class="section" style="background-color: var(--bg-secondary)">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="section-title orbitron holographic">GAME OVERVIEW</h2>
+            <p class="section-description">
+                Step into the shoes of Tommy Vercetti and experience the rise of a criminal empire 
+                in the neon-drenched paradise of Vice City.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Main Game Image -->
+                <div class="lg:col-span-2">
+                    <div class="image-box" style="height: 400px;">
+                        <div class="image-placeholder">
+                            <img src="../Images/GTA Vice City/i1.jpeg" alt="GTA Vice City Main" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Info Card -->
+                <div class="info-card">
+                    <i class="info-icon fas fa-info-circle"></i>
+                    <h3 class="text-2xl font-bold mb-4 holographic">Game Details</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><strong>Release Date:</strong> October 29, 2002</li>
+                        <li><strong>Genre:</strong> Action-Adventure</li>
+                        <li><strong>Platform:</strong> PC, Console</li>
+                        <li><strong>Size:</strong> 1.5 GB</li>
+                        <li><strong>Age Rating:</strong> M (Mature 17+)</li>
+                        <li><strong>Languages:</strong> Multiple</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section id="screenshots" class="section" style="background-color: var(--bg-primary)">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="section-title orbitron holographic">SCREENSHOTS</h2>
+            <p class="section-description">
+                Immerse yourself in the vibrant world of Vice City through these stunning visuals
+            </p>
+
+            <!-- Large Screenshots Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div class="image-box animate-fade-in-left" style="height: 300px;">
+                    <div class="image-placeholder">
+                        <img src="../Images/GTA Vice City/p1.jpeg" alt="Vice City Screenshot 1" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="image-box animate-fade-in-right" style="height: 300px;">
+                    <div class="image-placeholder">
+                        <img src="../Images/GTA Vice City/p2.jpeg" alt="Vice City Screenshot 2" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Medium Screenshots Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                <div class="image-box animate-fade-in-up animate-delay-1" style="height: 250px;">
+                    <div class="image-placeholder">
+                        <img src="../Images/GTA Vice City/p3.jpeg" alt="Vice City Screenshot 3" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="image-box animate-fade-in-up animate-delay-2" style="height: 250px;">
+                    <div class="image-placeholder">
+                        <img src="../Images/GTA Vice City/p4.jpeg" alt="Vice City Screenshot 4" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="image-box animate-fade-in-up animate-delay-3" style="height: 250px;">
+                    <div class="image-placeholder">
+                        <img src="../Images/GTA Vice City/p5.jpeg" alt="Vice City Screenshot 5" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Small Screenshots Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="image-box animate-fade-in-up animate-delay-1" style="height: 180px;">
+                    <div class="image-placeholder">
+                        <img src="../Images/GTA Vice City/p6.jpeg" alt="Vice City Screenshot 6" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="image-box animate-fade-in-up animate-delay-2" style="height: 180px;">
+                    <div class="image-placeholder">
+                        <img src="../Images/GTA Vice City/p7.jpeg" alt="Vice City Screenshot 7" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="image-box animate-fade-in-up animate-delay-3" style="height: 180px;">
+                    <div class="image-placeholder">
+                        <img src="../Images/GTA Vice City/p8.jpeg" alt="Vice City Screenshot 8" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="image-box animate-fade-in-up animate-delay-4" style="height: 180px;">
+                    <div class="image-placeholder">
+                        <img src="../Images/GTA Vice City/p9.jpeg" alt="Vice City Screenshot 9" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section" style="background-color: var(--bg-secondary)">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="section-title orbitron holographic">GAME FEATURES</h2>
+            <p class="section-description">
+                Discover what makes GTA Vice City the ultimate crime saga experience
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature Cards -->
+                <div class="info-card animate-fade-in-left">
+                    <i class="info-icon fas fa-city"></i>
+                    <h3 class="text-2xl font-bold mb-4 holographic">Open World</h3>
+                    <p class="text-gray-300 mb-4">
+                        Explore the massive, living city of Vice City with complete freedom. 
+                        From beaches to downtown, every corner tells a story.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Massive open world environment</li>
+                        <li>Multiple districts to explore</li>
+                        <li>Day/night cycle</li>
+                        <li>Dynamic weather system</li>
+                    </ul>
+                </div>
+
+                <div class="info-card animate-fade-in-up">
+                    <i class="info-icon fas fa-car"></i>
+                    <h3 class="text-2xl font-bold mb-4 holographic">Vehicle Collection</h3>
+                    <p class="text-gray-300 mb-4">
+                        Drive over 100 different vehicles including sports cars, motorcycles, 
+                        boats, and helicopters through the 80s paradise.
+                    </p>
+                    <ul class="feature-list">
+                        <li>100+ unique vehicles</li>
+                        <li>Sports cars and supercars</li>
+                        <li>Motorcycles and boats</li>
+                        <li>Aircraft and helicopters</li>
+                    </ul>
+                </div>
+
+                <div class="info-card animate-fade-in-right">
+                    <i class="info-icon fas fa-music"></i>
+                    <h3 class="text-2xl font-bold mb-4 holographic">80s Soundtrack</h3>
+                    <p class="text-gray-300 mb-4">
+                        Experience the authentic 80s atmosphere with an incredible soundtrack 
+                        featuring legendary artists and radio stations.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Multiple radio stations</li>
+                        <li>80s classic hits</li>
+                        <li>Voice acting by celebrities</li>
+                        <li>Immersive audio design</li>
+                    </ul>
+                </div>
+
+                <div class="info-card animate-fade-in-left animate-delay-1">
+                    <i class="info-icon fas fa-user-secret"></i>
+                    <h3 class="text-2xl font-bold mb-4 holographic">Crime Empire</h3>
+                    <p class="text-gray-300 mb-4">
+                        Build your criminal empire from the ground up. Complete missions, 
+                        earn respect, and become the kingpin of Vice City.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Epic storyline missions</li>
+                        <li>Character progression</li>
+                        <li>Territory control</li>
+                        <li>Multiple endings</li>
+                    </ul>
+                </div>
+
+                <div class="info-card animate-fade-in-up animate-delay-2">
+                    <i class="info-icon fas fa-crosshairs"></i>
+                    <h3 class="text-2xl font-bold mb-4 holographic">Combat System</h3>
+                    <p class="text-gray-300 mb-4">
+                        Engage in intense combat with a variety of weapons and fighting styles. 
+                        From street fights to epic shootouts.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Diverse weapon arsenal</li>
+                        <li>Melee and ranged combat</li>
+                        <li>Cover system</li>
+                        <li>Stealth mechanics</li>
+                    </ul>
+                </div>
+
+                <div class="info-card animate-fade-in-right animate-delay-3">
+                    <i class="info-icon fas fa-gamepad"></i>
+                    <h3 class="text-2xl font-bold mb-4 holographic">Enhanced Gameplay</h3>
+                    <p class="text-gray-300 mb-4">
+                        Enhanced graphics, improved controls, and optimized performance 
+                        for the ultimate gaming experience.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Enhanced graphics</li>
+                        <li>Improved controls</li>
+                        <li>Better performance</li>
+                        <li>Bug fixes and stability</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Character Gallery -->
+    <section id="characters" class="section" style="background-color: var(--bg-primary)">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="section-title orbitron holographic">MAIN CHARACTERS</h2>
+            <p class="section-description">
+                Meet the iconic characters that make Vice City unforgettable
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="image-box animate-fade-in-up animate-delay-1" style="height: 300px;">
+                    <div class="image-placeholder">
+                        <img src="../Images/GTA Vice City/c1.jpeg" alt="Tommy Vercetti" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h4 class="text-white font-bold">Tommy Vercetti</h4>
+                            <p class="text-gray-300 text-sm">Protagonist</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-box animate-fade-in-up animate-delay-2" style="height: 300px;">
+                    <div class="image-placeholder">
+                        <img src="../Images/GTA Vice City/c3.jpeg" alt="Lance Vance" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h4 class="text-white font-bold">Lance Vance</h4>
+                            <p class="text-gray-300 text-sm">Partner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-box animate-fade-in-up animate-delay-3" style="height: 300px;">
+                    <div class="image-placeholder">
+                        <img src="../Images/GTA Vice City/c2.jpeg" alt="Sonny Forelli" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h4 class="text-white font-bold">Sonny Forelli</h4>
+                            <p class="text-gray-300 text-sm">Antagonist</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-box animate-fade-in-up animate-delay-4" style="height: 300px;">
+                    <div class="image-placeholder">
+                        <img src="../Images/GTA Vice City/c4.jpeg" alt="Ken Rosenberg" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <h4 class="text-white font-bold">Ken Rosenberg</h4>
+                            <p class="text-gray-300 text-sm">Lawyer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Requirements -->
+    <section id="requirements" class="section" style="background-color: var(--bg-secondary)">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="section-title orbitron holographic">SYSTEM REQUIREMENTS</h2>
+            <p class="section-description">
+                Make sure your system meets these requirements for optimal performance
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Minimum Requirements -->
+                <div class="info-card animate-fade-in-left">
+                    <i class="info-icon fas fa-desktop"></i>
+                    <h3 class="text-2xl font-bold mb-4 holographic">Minimum Requirements</h3>
+                    <ul class="feature-list space-y-3">
+                        <li><strong>OS:</strong> Windows XP / Vista / 7 / 8 / 10</li>
+                        <li><strong>Processor:</strong> 800 MHz Intel Pentium III</li>
+                        <li><strong>Memory:</strong> 128 MB RAM</li>
+                        <li><strong>Graphics:</strong> 32 MB Video Card</li>
+                        <li><strong>DirectX:</strong> Version 9.0</li>
+                        <li><strong>Storage:</strong> 1.55 GB available space</li>
+                        <li><strong>Sound:</strong> DirectX compatible</li>
+                    </ul>
+                </div>
+
+                <!-- Recommended Requirements -->
+                <div class="info-card animate-fade-in-right">
+                    <i class="info-icon fas fa-rocket"></i>
+                    <h3 class="text-2xl font-bold mb-4 holographic">Recommended Requirements</h3>
+                    <ul class="feature-list space-y-3">
+                        <li><strong>OS:</strong> Windows 10 64-bit</li>
+                        <li><strong>Processor:</strong> 1 GHz Intel Pentium III</li>
+                        <li><strong>Memory:</strong> 256 MB RAM</li>
+                        <li><strong>Graphics:</strong> 64 MB Video Card</li>
+                        <li><strong>DirectX:</strong> Version 9.0c</li>
+                        <li><strong>Storage:</strong> 2 GB available space</li>
+                        <li><strong>Sound:</strong> DirectX compatible</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="section" style="background-color: var(--bg-primary)">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="section-title orbitron holographic">DOWNLOAD INFO</h2>
+            <p class="section-description">
+                Get ready to enter the criminal underworld of Vice City. Your empire awaits!
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <!-- Download Info -->
+                <div class="info-card animate-fade-in-up">
+                    <i class="info-icon fas fa-download"></i>
+                    <h3 class="text-2xl font-bold mb-4 holographic">Download Info</h3>
+                    <ul class="feature-list">
+                        <li><strong>File Size:</strong> 1.4 GB</li>
+                        <li><strong>Format:</strong> ZIP Archive</li>
+                        <li><strong>Language:</strong> English</li>
+                        <li><strong>Crack:</strong> Included</li>
+                        <li><strong>Version:</strong> Complete Edition</li>
+                    </ul>
+                </div>
+
+                <!-- Installation Steps -->
+                <div class="info-card animate-fade-in-up animate-delay-1">
+                    <i class="info-icon fas fa-cogs"></i>
+                    <h3 class="text-2xl font-bold mb-4 holographic">Installation</h3>
+                    <ul class="feature-list">
+                        <li>Download the game file</li>
+                        <li>Extract using WinRAR/7-Zip</li>
+                        <li>Run setup.exe as administrator</li>
+                        <li>Follow installation wizard</li>
+                        <li>Apply crack if needed</li>
+                        <li>Enjoy the game!</li>
+                    </ul>
+                </div>
+
+                <!-- Additional Info -->
+                <div class="info-card animate-fade-in-up animate-delay-2">
+                    <i class="info-icon fas fa-shield-alt"></i>
+                    <h3 class="text-2xl font-bold mb-4 holographic">Safety Info</h3>
+                    <ul class="feature-list">
+                        <li>100% Clean & Safe</li>
+                        <li>No Malware/Viruses</li>
+                        <li>Pre-tested & Working</li>
+                        <li>Fast Download Speed</li>
+                        <li>Complete Installation</li>
+                        <li>24/7 Support</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Main Download Button -->
+            <div class="text-center animate-fade-in-up animate-delay-3">
+                <a href="#" class="download-btn" style="font-size: 1.5rem; padding: 25px 80px;">
+                    <i class="fas fa-download" style="font-size: 1.3rem;"></i>
+                    DOWNLOAD GTA VICE CITY NOW
+                </a>
+                <div class="mt-6">
+                    <p class="text-gray-400">
+                        <i class="fas fa-users mr-2"></i>Downloaded by 50M+ players worldwide
+                    </p>
+                    <p class="text-gray-400 mt-2">
+                        <i class="fas fa-clock mr-2"></i>Average download time: 15-30 minutes
+                    </p>
+                </div>
+            </div>
+
+            <!-- Alternative Download Links -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-12">
+                <div class="image-box animate-fade-in-up" style="height: 120px;">
+                    <div class="image-placeholder">
+                        <div class="text-center">
+                            <i class="fas fa-cloud-download-alt text-3xl mb-2"></i>
+                            <p class="font-bold">Mirror 1</p>
+                            <p class="text-sm">Primary Server</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-box animate-fade-in-up animate-delay-1" style="height: 120px;">
+                    <div class="image-placeholder">
+                        <div class="text-center">
+                            <i class="fas fa-server text-3xl mb-2"></i>
+                            <p class="font-bold">Mirror 2</p>
+                            <p class="text-sm">Backup Server</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-box animate-fade-in-up animate-delay-2" style="height: 120px;">
+                    <div class="image-placeholder">
+                        <div class="text-center">
+                            <i class="fas fa-bolt text-3xl mb-2"></i>
+                            <p class="font-bold">High Speed</p>
+                            <p class="text-sm">Premium Server</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-box animate-fade-in-up animate-delay-3" style="height: 120px;">
+                    <div class="image-placeholder">
+                        <div class="text-center">
+                            <i class="fas fa-globe text-3xl mb-2"></i>
+                            <p class="font-bold">Global CDN</p>
+                            <p class="text-sm">Worldwide</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer section" style="background-color: var(--bg-secondary)">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center">
+                <!-- Logo -->
+                <div class="gaming-logo mb-6 justify-center">
+                    <i class="logo-icon fas fa-car"></i>
+                    <span class="text-2xl font-bold orbitron holographic">GTA Vice City</span>
+                </div>
+                
+                <p class="mb-4 text-gray-400">
+                    Experience the ultimate crime saga in the neon-soaked streets of Vice City. 
+                    Build your empire and live the 80s dream.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                    <div>
+                        <h4 class="font-bold mb-4 holographic">GAME INFO</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li>Release: 2002</li>
+                            <li>Genre: Action</li>
+                            <li>Platform: PC</li>
+                            <li>Rating: M</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-4 holographic">FEATURES</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li>Open World</li>
+                            <li>80s Soundtrack</li>
+                            <li>Vehicle Collection</li>
+                            <li>Epic Story</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-4 holographic">DOWNLOAD</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li>Size: 1.4 GB</li>
+                            <li>Format: ZIP</li>
+                            <li>Version: Complete</li>
+                            <li>Language: EN</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold mb-4 holographic">SUPPORT</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li>Installation Guide</li>
+                            <li>System Requirements</li>
+                            <li>Troubleshooting</li>
+                            <li>Contact Us</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="border-t pt-6 text-center" style="border-color: var(--border-color)">
+                    <p class="text-gray-400 holographic">
+                        © 2025 GTA Vice City Download Portal. All rights reserved. 
+                        Experience the legendary crime saga today.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeApp();
+        });
+
+        function initializeApp() {
+            createStars();
+            createParticles();
+            createGeometricShapes();
+            setupEventListeners();
+            setupIntersectionObserver();
+            setupScrollEffects();
+        }
+
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const starCount = 150;
+
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = Math.random() > 0.95 ? 'star shooting' : 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = Math.random() * 3 + 1 + 'px';
+                star.style.height = star.style.width;
+                star.style.animationDelay = Math.random() * 2 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                const particleType = Math.random();
+                
+                if (particleType > 0.8) {
+                    particle.className = 'particle glow';
+                } else if (particleType > 0.6) {
+                    particle.className = 'particle pulse';
+                } else if (particleType > 0.4) {
+                    particle.className = 'particle quantum';
+                } else {
+                    particle.className = 'particle';
+                }
+                
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 6) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        function createGeometricShapes() {
+            const geometricContainer = document.getElementById('geometricBg');
+            const shapeCount = 15;
+
+            for (let i = 0; i < shapeCount; i++) {
+                const shape = document.createElement('div');
+                const shapeType = Math.random();
+                
+                if (shapeType > 0.75) {
+                    shape.className = 'geometric-shape triangle';
+                } else if (shapeType > 0.5) {
+                    shape.className = 'geometric-shape hexagon';
+                } else if (shapeType > 0.25) {
+                    shape.className = 'geometric-shape diamond';
+                } else {
+                    shape.className = 'geometric-shape octagon';
+                }
+                
+                shape.style.left = Math.random() * 100 + '%';
+                shape.style.top = Math.random() * 100 + '%';
+                shape.style.animationDelay = Math.random() * 20 + 's';
+                shape.style.animationDuration = (Math.random() * 10 + 20) + 's';
+                geometricContainer.appendChild(shape);
+            }
+        }
+
+        function setupEventListeners() {
+            // Mobile menu
+            document.getElementById('mobileMenuBtn').addEventListener('click', toggleMobileMenu);
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        // Close mobile menu if open
+                        document.getElementById('mobileMenu').classList.add('hidden');
+                    }
+                });
+            });
+
+            // Image box click effects
+            document.querySelectorAll('.image-box').forEach(box => {
+                box.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+        }
+
+        function setupIntersectionObserver() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in-up');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections and cards
+            document.querySelectorAll('section, .info-card, .image-box').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        function setupScrollEffects() {
+            let ticking = false;
+
+            function updateScrollEffects() {
+                const scrollY = window.scrollY;
+                const navbar = document.getElementById('navbar');
+                
+                // Navbar scroll effect
+                if (scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+
+                // Parallax effect for particles
+                const particles = document.querySelectorAll('.particle');
+                particles.forEach((particle, index) => {
+                    const speed = (index % 3 + 1) * 0.5;
+                    particle.style.transform = `translateY(${scrollY * speed}px)`;
+                });
+
+                ticking = false;
+            }
+
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    requestAnimationFrame(updateScrollEffects);
+                    ticking = true;
+                }
+            });
+        }
+
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // Console easter eggs
+        console.log('🏎️ Welcome to Vice City! The 80s await you...');
+        console.log('🌴 Experience the ultimate crime saga!');
+        console.log('💎 Build your empire in the neon paradise!');
+    </script>
+</body>
+</html>
