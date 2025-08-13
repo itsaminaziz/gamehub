@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GameHub Games - Premium Game Collection & Digital Entertainment">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0a0a0f">
+    <title>GameHub Games - Premium Game Collection</title>
+
+    <!-- Optimized Font Loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:wght@300;400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-glow: #667eea;
+            --secondary-glow: #764ba2;
+            --accent-glow: #f093fb;
+            --success-glow: #4facfe;
+            --warning-glow: #f6d365;
+            --danger-glow: #ff6b6b;
+            --neon-blue: #00f5ff;
+            --neon-pink: #ff006e;
+            --neon-green: #39ff14;
+            --neon-purple: #bf00ff;
+            --cyber-orange: #ff9500;
+            --quantum-gold: #ffd700;
+            --matrix-red: #ff0040;
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #1a1a2e;
+            --bg-card: #16213e;
+            --bg-glass: rgba(0, 0, 0, 0.3);
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --border-color: #475569;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --glow-primary: rgba(102, 126, 234, 0.5);
+            --glow-secondary: rgba(118, 75, 162, 0.5);
+        }
+
+        body {
+            font-family: 'Rajdhani', 'Arial', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .orbitron {
+            font-family: 'Orbitron', 'Courier New', monospace;
+        }
+
+        /* Skeleton Loading States */
+        .skeleton {
+            background: linear-gradient(90deg, var(--bg-card) 25%, rgba(102, 126, 234, 0.1) 50%, var(--bg-card) 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+        }
+
+        @keyframes skeleton-loading {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        .skeleton-card {
+            background: var(--bg-card);
+            border-radius: 10px;
+            padding: 0;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            min-height: 400px;
+        }
+
+        .skeleton-image {
+            height: 200px;
+            width: 100%;
+            background: var(--bg-secondary);
+        }
+
+        .skeleton-content {
+            padding: 24px;
+        }
+
+        .skeleton-title {
+            height: 24px;
+            width: 70%;
+            margin-bottom: 12px;
+            border-radius: 4px;
+        }
+
+        .skeleton-description {
+            height: 16px;
+            width: 100%;
+            margin-bottom: 8px;
+            border-radius: 4px;
+        }
+
+        .skeleton-description:last-child {
+            width: 80%;
+        }
+
+        .skeleton-tags {
+            display: flex;
+            gap: 8px;
+            margin: 16px 0;
+        }
+
+        .skeleton-tag {
+            height: 24px;
+            width: 60px;
+            border-radius: 12px;
+        }
+
+        .skeleton-button {
+            height: 48px;
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 12px;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: background-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .navbar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink), var(--neon-green), var(--neon-purple));
+            background-size: 400% 100%;
+            animation: rainbow-flow 3s linear infinite;
+        }
+
+        @keyframes rainbow-flow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 15, 0.98);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1rem;
+        }
+
+        .gaming-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .gaming-logo::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, var(--primary-glow), var(--secondary-glow), var(--accent-glow));
+            border-radius: 12px;
+            opacity: 0;
+            filter: blur(10px);
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .gaming-logo:hover::before {
+            opacity: 0.7;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
+            border-radius: 8px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::before {
+            opacity: 0.2;
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            color: #fff;
+        }
+
+        .nav-link.active {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            color: white;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: rgba(0, 245, 255, 0.1);
+            border: 1px solid rgba(0, 245, 255, 0.3);
+            color: var(--neon-blue);
+            padding: 0.75rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn:hover {
+            background: rgba(0, 245, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .mobile-menu {
+            display: none;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            backdrop-filter: blur(20px);
+        }
+
+        .mobile-menu.show {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 16px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .mobile-menu a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 0;
+            background: var(--neon-blue);
+            transition: width 0.3s ease;
+        }
+
+        .mobile-menu a:hover::before {
+            width: 4px;
+        }
+
+        .mobile-menu a:hover {
+            background: var(--bg-glass);
+            transform: translateX(10px);
+            color: var(--neon-blue);
+        }
+
+        /* Holographic Effect */
+        .holographic {
+            background: linear-gradient(45deg, 
+                var(--neon-blue) 0%, 
+                var(--neon-pink) 25%, 
+                var(--neon-green) 50%, 
+                var(--neon-purple) 75%, 
+                var(--neon-blue) 100%);
+            background-size: 400% 400%;
+            animation: holographic-shift 3s ease infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes holographic-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Main Container */
+        .main-container {
+            margin-top: 65px;
+            min-height: calc(100vh - 80px);
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.2) 0%, transparent 50%),
+                linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+        }
+
+        /* Games Header */
+        .games-header {
+            text-align: center;
+            padding: 1rem 2rem 1rem;
+            position: relative;
+        }
+
+        .games-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .games-subtitle {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 0;
+            line-height: 1.7;
+        }
+
+        /* Games Container */
+        .games-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            min-height: 200px;
+        }
+
+        /* Game Cards */
+        .game-card {
+            background: var(--bg-card);
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+            border: 1px solid var(--border-color);
+            position: relative;
+            border-radius: 10px;
+            will-change: transform, box-shadow;
+            opacity: 0;
+            transform: translateY(30px);
+            min-height: 500px;
+            content-visibility: auto;
+            contain-intrinsic-size: 350px 500px;
+        }
+
+        .game-card.loaded {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .game-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: black;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+            border-radius: 12px;
+        }
+
+        .game-card:hover::before {
+            opacity: 1;
+        }
+
+        .game-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.3),
+                0 0 50px rgba(0, 245, 255, 0.2);
+        }
+
+        .game-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        .game-image img.loading {
+            opacity: 0;
+        }
+
+        .game-image img.loaded {
+            opacity: 1;
+        }
+
+        .game-image .image-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            font-size: 4rem;
+            color: white;
+            transition: opacity 0.3s ease;
+        }
+
+        .game-image .image-placeholder.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .game-type-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 1px solid var(--neon-blue);
+            backdrop-filter: blur(10px);
+            color: var(--neon-blue);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 10;
+        }
+
+        .game-content {
+            padding: 24px;
+            position: relative;
+        }
+
+        .game-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .game-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .game-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .game-tag {
+            background: rgba(0, 245, 255, 0.2);
+            color: var(--neon-blue);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border: 1px solid rgba(0, 245, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .game-tag:hover {
+            background: rgba(0, 245, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .game-stats {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 12px;
+            background: var(--bg-glass);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 245, 255, 0.2);
+        }
+
+        .stat-group {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-family: 'Orbitron', monospace;
+            font-size: 0.9rem;
+        }
+
+        .download-btn {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Orbitron', monospace;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            will-change: transform, background, box-shadow;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .download-btn:hover::before {
+            left: 100%;
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0, 245, 255, 0.4);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .animate-delay-1 { animation-delay: 0.1s; }
+        .animate-delay-2 { animation-delay: 0.2s; }
+        .animate-delay-3 { animation-delay: 0.3s; }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--neon-blue);
+        }
+
+        /* Utility Classes */
+        .hidden { display: none !important; }
+        .text-2xl { font-size: 1.5rem; line-height: 2rem; }
+        .font-bold { font-weight: 700; }
+        .mb-2 { margin-bottom: 0.5rem; }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .games-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .games-header {
+                padding: 3rem 1rem 1rem;
+            }
+
+            .games-container {
+                padding: 0 1rem 3rem;
+            }
+
+            .games-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .game-card {
+                padding: 1.25rem;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .game-card {
+                min-height: auto;
+            }
+
+            .download-btn {
+                padding: 14px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Selection */
+        ::selection {
+            background: var(--neon-blue);
+            color: white;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink));
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="gaming-logo">
+                <i class="logo-icon fa-solid fa-gamepad fa-beat"></i>
+                <span class="orbitron holographic" style="font-size: 1.25rem; font-weight: 700;">GameHub</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html" class="nav-link"><i class="fa-solid fa-house-user"></i> Home</a>
+                <a href="games.html" class="nav-link active"><i class="fa fa-gamepad"></i> Games</a>
+                <a href="blogs.html" class="nav-link holographic"><i class="fa fa-blog"></i> Blogs</a>
+                <a href="index.html#about" class="nav-link"><i class="fa fa-address-card"></i> About</a>
+                <a href="index.html#contact" class="nav-link"><i class="fa fa-headset"></i> Contact Us</a>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html">Home</a>
+            <a href="games.html" class="holographic active">Games</a>
+            <a href="blogs.html" class="holographic"><i class="fa fa-blog"></i> Blogs</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="main-container">
+        <!-- Games Header -->
+        <header class="games-header">
+            <h1 class="games-title orbitron holographic"><i class="fa fa-gamepad"></i> FEATURED GAMES</h1>
+            <p class="games-subtitle">
+                Handpicked digital masterpieces from the gaming multiverse. Experience premium entertainment
+                curated by our quantum-enhanced selection algorithms.
+            </p>
+        </header>
+
+        <!-- Games Container -->
+        <div class="games-container">
+            <div id="gamesContainer" class="games-grid">
+                <!-- Games will be populated here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="games.html">Games</a>
+                <a href="blogs.html">Blogs</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <p style="color: var(--text-secondary);" class="holographic">
+                © 2025 GameHub Neural Network. All rights reserved. Powered by quantum computing.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Enhanced Games Data
+        const gamesData = [
+            {
+                id: 1,
+                title: "GTA Vice City",
+                type: "Action",
+                description: "GTA Vice City is an open-world action game set in the 1980s, where players rise through the criminal underworld in a vibrant, neon-lit city.",
+                size: "1.5 GB",
+                image: "Images/Index/g1.jpeg",
+                popular: true,
+                newest: false,
+                rating: 4.8,
+                players: "20M+",
+                tags: ["Open-World", "1980s", "Single-Player"],
+                url: "gtavc.html"
+            },
+            {
+                id: 2,
+                title: "Fantasy Quest Adventures",
+                type: "Adventure",
+                description: "Immersive reality adventure with AI-driven storytelling, procedural world generation, and sentient NPC interactions.",
+                size: "6.8 GB",
+                image: "🗺️",
+                popular: false,
+                newest: true,
+                rating: 4.9,
+                players: "25M+",
+                tags: ["AI-Driven", "Procedural", "Fantasy"],
+                url: "#"
+            },
+            {
+                id: 3,
+                title: "Strategic Warfare",
+                type: "Strategy",
+                description: "Quantum strategic simulation with advanced AI opponents, temporal mechanics, and multidimensional battlefields.",
+                size: "3.1 GB",
+                image: "🧠",
+                popular: true,
+                newest: false,
+                rating: 4.7,
+                players: "15M+",
+                tags: ["Quantum-AI", "Temporal", "Strategy"],
+                url: "#"
+            },
+            {
+                id: 4,
+                title: "Speed Racer Pro",
+                type: "Racing",
+                description: "Hyper-velocity racing with photorealistic physics, neural car customization, and interdimensional tracks.",
+                size: "5.5 GB",
+                image: "🏎️",
+                popular: false,
+                newest: true,
+                rating: 4.6,
+                players: "30M+",
+                tags: ["Hyper-Velocity", "Neural-Custom", "Physics"],
+                url: "#"
+            },
+            {
+                id: 5,
+                title: "Mystic Legends",
+                type: "Adventure",
+                description: "Mystical journey through quantum realms filled with AI magic systems, sentient artifacts, and legendary digital beings.",
+                size: "7.2 GB",
+                image: "🏰",
+                popular: true,
+                newest: false,
+                rating: 4.8,
+                players: "20M+",
+                tags: ["Quantum-Magic", "AI-Systems", "Mystical"],
+                url: "#"
+            },
+            {
+                id: 6,
+                title: "Neon City Combat",
+                type: "Action",
+                description: "Cyberpunk warfare in a neural-enhanced metropolis with quantum weapons and holographic combat systems.",
+                size: "4.8 GB",
+                image: "🌃",
+                popular: false,
+                newest: true,
+                rating: 4.5,
+                players: "12M+",
+                tags: ["Cyberpunk", "Quantum-Tech", "Holographic"],
+                url: "#"
+            },
+            {
+                id: 7,
+                title: "Quantum Nexus",
+                type: "Action",
+                description: "Mind-bending action RPG with quantum mechanics, parallel universe exploration, and consciousness transfer abilities.",
+                size: "8.1 GB",
+                image: "⚡",
+                popular: true,
+                newest: true,
+                rating: 4.9,
+                players: "35M+",
+                tags: ["Quantum-Physics", "Parallel-Worlds", "Mind-Transfer"],
+                url: "#"
+            },
+            {
+                id: 8,
+                title: "Digital Odyssey",
+                type: "Adventure",
+                description: "Epic space exploration with AI companions, procedural galaxy generation, and deep narrative branching systems.",
+                size: "12.3 GB",
+                image: "🚀",
+                popular: true,
+                newest: false,
+                rating: 4.7,
+                players: "18M+",
+                tags: ["Space-Exploration", "AI-Companions", "Epic-Scale"],
+                url: "#"
+            }
+        ];
+
+        let loadedCards = new Set();
+
+        // Enhanced Preloading System
+        class ImagePreloader {
+            constructor() {
+                this.cache = new Map();
+                this.loadPromises = new Map();
+            }
+
+            preload(src) {
+                if (this.loadPromises.has(src)) {
+                    return this.loadPromises.get(src);
+                }
+
+                if (this.cache.has(src)) {
+                    return Promise.resolve(this.cache.get(src));
+                }
+
+                const promise = new Promise((resolve, reject) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        this.cache.set(src, img);
+                        resolve(img);
+                    };
+                    img.onerror = () => {
+                        reject(new Error(`Failed to load image: ${src}`));
+                    };
+                    img.src = src;
+                });
+
+                this.loadPromises.set(src, promise);
+                return promise;
+            }
+
+            preloadBatch(urls) {
+                return Promise.allSettled(urls.map(url => this.preload(url)));
+            }
+
+            getFromCache(src) {
+                return this.cache.get(src);
+            }
+        }
+
+        const imagePreloader = new ImagePreloader();
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeApp();
+        });
+
+        async function initializeApp() {
+            try {
+                // Preload all images first
+                await preloadAllImages();
+                
+                // Render content
+                await renderSkeletonCards();
+                setTimeout(() => {
+                    renderGames();
+                }, 100);
+                
+                // Setup other components
+                setupEventListeners();
+                setupIntersectionObserver();
+                setupScrollEffects();
+                
+            } catch (error) {
+                console.error('App initialization failed:', error);
+                // Fallback: continue without preloading
+                renderGames();
+                setupEventListeners();
+                setupIntersectionObserver();
+                setupScrollEffects();
+            }
+        }
+
+        async function preloadAllImages() {
+            const imageUrls = gamesData
+                .filter(game => game.image.startsWith('http') || game.image.startsWith('Images/'))
+                .map(game => game.image);
+            
+            if (imageUrls.length === 0) return;
+            
+            console.log('Preloading images:', imageUrls);
+            const results = await imagePreloader.preloadBatch(imageUrls);
+            
+            results.forEach((result, index) => {
+                if (result.status === 'fulfilled') {
+                    console.log(`✅ Preloaded: ${imageUrls[index]}`);
+                } else {
+                    console.warn(`❌ Failed to preload: ${imageUrls[index]}`, result.reason);
+                }
+            });
+        }
+
+        function renderSkeletonCards() {
+            return new Promise((resolve) => {
+                const container = document.getElementById('gamesContainer');
+                if (!container) {
+                    resolve();
+                    return;
+                }
+                
+                container.innerHTML = '';
+                
+                // Create skeleton cards
+                for (let i = 0; i < gamesData.length; i++) {
+                    const skeletonCard = document.createElement('div');
+                    skeletonCard.className = 'skeleton-card';
+                    skeletonCard.innerHTML = `
+                        <div class="skeleton-image skeleton"></div>
+                        <div class="skeleton-content">
+                            <div class="skeleton-title skeleton"></div>
+                            <div class="skeleton-description skeleton"></div>
+                            <div class="skeleton-description skeleton"></div>
+                            <div class="skeleton-tags">
+                                <div class="skeleton-tag skeleton"></div>
+                                <div class="skeleton-tag skeleton"></div>
+                                <div class="skeleton-tag skeleton"></div>
+                            </div>
+                            <div class="skeleton-button skeleton"></div>
+                        </div>
+                    `;
+                    container.appendChild(skeletonCard);
+                }
+                
+                resolve();
+            });
+        }
+
+        function setupEventListeners() {
+            // Mobile menu
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    const isShown = mobileMenu.classList.contains('show');
+                    mobileMenu.classList.toggle('show');
+                    mobileMenuBtn.setAttribute('aria-expanded', !isShown);
+                });
+            }
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (mobileMenu && !mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+                    mobileMenu.classList.remove('show');
+                }
+            });
+
+            // Keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.remove('show');
+                        if (mobileMenuBtn) {
+                            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                }
+            });
+        }
+
+        function setupIntersectionObserver() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const element = entry.target;
+                        
+                        if (element.classList.contains('game-card')) {
+                            const cardId = element.dataset.cardId;
+                            if (cardId && !loadedCards.has(cardId)) {
+                                loadedCards.add(cardId);
+                                element.classList.add('loaded');
+                            }
+                        }
+                        
+                        observer.unobserve(element);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe new game cards
+            setTimeout(() => {
+                document.querySelectorAll('.game-card').forEach(el => {
+                    observer.observe(el);
+                });
+            }, 100);
+        }
+
+        function setupScrollEffects() {
+            let ticking = false;
+
+            function updateScrollEffects() {
+                if (!ticking) {
+                    requestAnimationFrame(() => {
+                        const scrollY = window.scrollY;
+                        const navbar = document.getElementById('navbar');
+                        
+                        if (navbar) {
+                            if (scrollY > 50) {
+                                navbar.classList.add('scrolled');
+                            } else {
+                                navbar.classList.remove('scrolled');
+                            }
+                        }
+                        
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }
+
+            window.addEventListener('scroll', updateScrollEffects, { passive: true });
+        }
+
+        function renderGames() {
+            const container = document.getElementById('gamesContainer');
+            if (!container) return;
+            
+            container.innerHTML = '';
+            loadedCards.clear();
+            
+            gamesData.forEach((game, index) => {
+                const gameCard = createGameCard(game, index);
+                container.appendChild(gameCard);
+            });
+            
+            // Re-setup intersection observer for new cards
+            setTimeout(() => {
+                setupIntersectionObserver();
+            }, 100);
+        }
+
+        function createGameCard(game, index) {
+            const card = document.createElement('div');
+            card.className = 'game-card';
+            card.dataset.cardId = game.id;
+            
+            const tagsHtml = game.tags.map(tag => 
+                `<span class="game-tag">${tag}</span>`
+            ).join('');
+            
+            let imageContent;
+            if (game.image.startsWith('http') || game.image.startsWith('Images/')) {
+                const cachedImg = imagePreloader.getFromCache(game.image);
+                if (cachedImg) {
+                    imageContent = `<img src="${game.image}" alt="${game.title}" class="loaded" loading="lazy">`;
+                } else {
+                    imageContent = `
+                        <div class="image-placeholder" aria-hidden="true">🎮</div>
+                        <img src="${game.image}" alt="${game.title}" class="loading" loading="lazy" 
+                             onload="this.classList.remove('loading'); this.classList.add('loaded'); this.previousElementSibling.classList.add('hidden');"
+                             onerror="this.style.display='none'; this.previousElementSibling.textContent='❌';">
+                    `;
+                }
+            } else {
+                imageContent = `<div class="text-6xl" aria-hidden="true">${game.image}</div>`;
+            }
+            
+            card.innerHTML = `
+                <div class="game-image">
+                    ${imageContent}
+                    <div class="game-type-badge">${game.type.toUpperCase()}</div>
+                </div>
+                <div class="game-content">
+                    <h3 class="game-title">${game.title}</h3>
+                    <p class="game-description">${game.description}</p>
+                    <div class="game-tags">
+                        ${tagsHtml}
+                    </div>
+                    <div class="game-stats">
+                        <div class="stat-group">
+                            <i class="fas fa-star" style="color: #ffd700;" aria-hidden="true"></i>
+                            <span class="font-semibold" style="color: var(--text-primary)">${game.rating}</span>
+                        </div>
+                        <div class="stat-group">
+                            <i class="fas fa-users" style="color: var(--text-secondary)" aria-hidden="true"></i>
+                            <span style="color: var(--text-secondary)">${game.players}</span>
+                        </div>
+                        <div class="stat-group">
+                            <i class="fas fa-hdd" style="color: var(--text-secondary)" aria-hidden="true"></i>
+                            <span style="color: var(--text-secondary)">${game.size}</span>
+                        </div>
+                    </div>
+                    <a href="${game.url}" class="download-btn" ${game.url === '#' ? 'onclick="return false;"' : 'target="_blank" rel="noopener noreferrer"'} aria-label="Download ${game.title}">
+                        <i class="fas fa-download mr-2" aria-hidden="true"></i>INITIALIZE DOWNLOAD
+                    </a>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        // Add loading animation on page load
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+        });
+    </script>
+</body>
+</html>
